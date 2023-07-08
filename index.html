@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 2 (Contoh Portfolio)</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h2>NINJA KEN</h2>
+            <a href="">Tentang Saya</a>
+            <a href="">Proyek Contoh</a>
+            <a href="">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="highlight">
+                <h1>NINJA KEN <span>.</span></h1>
+                <h2>MY PORTFOLIO</h2>
+                <img src="images/Ninja Ken.png" alt="">
+            </div>
+        </div>
+    </main>
+
+    <section>
+        <div class="container">
+            <div class="about">
+                <h2>Tentang Saya</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae soluta labore libero in eveniet nesciunt eius quis facilis amet harum dolore, quod voluptate reiciendis distinctio quaerat quo, id iure ipsam?</p>
+            </div>
+            <div class="slider-container">
+                <h2>Proyek Contoh</h2>
+
+                <div class="slider-item fade">
+                    <img src="images/1.png" alt="" id="openModalButton">
+                    <p>Image 1</p>
+                    <div id="myModal">
+                        <div id="modalContent">
+                          <span id="closeModalIcon">&times;</span>
+                          <h2>Deskripsi</h2>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iusto possimus molestiae deleniti pariatur! Ab praesentium repudiandae quam magni ipsam, quas officiis possimus aperiam! Quam esse natus blanditiis aliquam eveniet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item fade">
+                    <img src="images/2.png" alt="" id="openModalButton">
+                    <p>Image 2</p>
+                    <div id="myModal">
+                        <div id="modalContent">
+                          <span id="closeModalIcon">&times;</span>
+                          <h2>Deskripsi</h2>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iusto possimus molestiae deleniti pariatur! Ab praesentium repudiandae quam magni ipsam, quas officiis possimus aperiam! Quam esse natus blanditiis aliquam eveniet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item fade">
+                    <img src="images/3.png" alt="" id="openModalButton">
+                    <p>Image 3</p>
+                    <div id="myModal">
+                        <div id="modalContent">
+                          <span id="closeModalIcon">&times;</span>
+                          <h2>Deskripsi</h2>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iusto possimus molestiae deleniti pariatur! Ab praesentium repudiandae quam magni ipsam, quas officiis possimus aperiam! Quam esse natus blanditiis aliquam eveniet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item fade">
+                    <img src="images/2.png" alt="" id="openModalButton">
+                    <p>Image 4</p>
+                    <div id="myModal">
+                        <div id="modalContent">
+                          <span id="closeModalIcon">&times;</span>
+                          <h2>Deskripsi</h2>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iusto possimus molestiae deleniti pariatur! Ab praesentium repudiandae quam magni ipsam, quas officiis possimus aperiam! Quam esse natus blanditiis aliquam eveniet.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="prev" onclick="updateSlide(-1)">&#10094;</a>
+                <a class="next" onclick="updateSlide(1)">&#10095;</a>
+            </div>
+
+
+            <div class="form">
+                <h2>Hubungi Saya</h2>
+                
+                <input type="text" class="input-1" value="Email (diperlukan)">
+                <input type="text" class="input-2" value="Message (diperlukan)">
+                <button class="contact-submit">Kirim</button>
+            </div>
+
+            <button class="accordion" onclick="acord()">FAQ</button>
+            <div class="panel">
+                <p>Email</p>
+                <p>Comments</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <h2>NINJA KEN</h2>
+            <ul>
+                <li href="#" >Tentang Saya</li>
+                <li href="#" >Proyek Contoh</li>
+                <li href="#" >Hubungi Saya</li>
+            </ul>
+            
+        </div>
+    </footer>
+</body>
+
+<script>
+
+//--------------------------------------------slider---------------------------------------------------
+let slideIndex = 0;
+
+const updateSlide = (n) => {
+  slideIndex += n;
+  showSlide(slideIndex);
+}
+
+const showSlide = (n) => {
+  const slides = document.getElementsByClassName("slider-item");
+  if (n > slides.length - 1) {
+    slideIndex = 0;
+  }
+  if (n < 0) {
+    slideIndex = slides.length - 1;
+  }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex].style.display = "block";
+}
+
+showSlide(slideIndex);
+
+
+//-----------------------------------------------modal---------------------------------------------------
+
+    const modal = document.getElementById("myModal");
+    const openButton = document.getElementById("openModalButton");
+    const closeIcon = document.getElementById("closeModalIcon");
+  
+    // Ketika tombol openButton ditekan
+    openButton.addEventListener('click', () => {
+      modal.style.display = "block";
+    });
+  
+    // Ketika tombol closeButton ditekan
+    closeIcon.addEventListener('click', () => {
+      modal.style.display = "none";
+    });
+
+//------------------------------------------------accordion-----------------------------------------------
+function acord (){
+  const accordion = document.getElementsByClassName("accordion");
+  
+  for (let i = 0; i < accordion.length; i++) {
+    accordion[i].addEventListener("click", function () {
+      const panel = this.nextElementSibling;
+
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+}
+
+
+</script>
+</html>
