@@ -87,8 +87,9 @@
             <div class="form">
                 <h2>Hubungi Saya</h2>
                 
-                <input type="text" class="input-1" value="Email (diperlukan)">
-                <input type="text" class="input-2" value="Message (diperlukan)">
+                <span id="email-error"></span>
+                <input type="email" class="input-1" placeholder="Email (diperlukan)" id="email-field" onkeyup="validateEmail()">
+                <input type="text" class="input-2" placeholder="Message (diperlukan)">
                 <button class="contact-submit">Kirim</button>
             </div>
 
@@ -172,6 +173,26 @@ function acord (){
       }
     });
   }
+}
+
+//-----------------------------------------------email-----------------------------------------------------
+
+var emailField = document.getElementById("email-field");
+var emailError = document.getElementById("email-error");
+
+function validateEmail(){
+  if(!emailField.value.match((/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/))){
+    emailError.innerHTML = "Please enter a valid email";
+    emailError.style.color= "red";
+    
+
+    return false;
+  } else
+
+  emailError.innerHTML = "Email is true";
+  emailError.style.color= "green";
+
+  return true;
 }
 
 
