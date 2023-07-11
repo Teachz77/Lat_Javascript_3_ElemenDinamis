@@ -246,6 +246,10 @@ section{
     color: #576574 ;
 }
 
+.contact-submit:hover{
+    background-color: #1dd1a1;
+}
+
 /*--------------------------------------------accordion----------------------------------------------------------*/
 
 .accordion {
